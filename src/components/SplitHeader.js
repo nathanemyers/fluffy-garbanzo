@@ -15,7 +15,7 @@ class SplitHeader extends Component {
     }
 
     return (
-      <div>
+      <div className="split-header">
         Hello World        
 
         <div className="split-image left-split" style={leftStyle}></div>
