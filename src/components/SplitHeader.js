@@ -6,29 +6,20 @@ class SplitHeader extends Component {
 
     const { rightImage, leftImage } = this.props
 
-    const sharedStyles = {
-      width: "100%",
-      height: "400px",
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-    }
-
     const leftStyle = {
       backgroundImage: `url(${leftImage})`,
-      ...sharedStyles,
     }
 
     const rightStyle = {
       backgroundImage: `url(${rightImage})`,
-      ...sharedStyles,
     }
 
     return (
       <div>
         Hello World        
 
-        <div style={leftStyle}></div>
-        <div style={rightStyle}></div>
+        <div className="split-image left-split" style={leftStyle}></div>
+        <div className="split-image right-split" style={rightStyle}></div>
 
         <svg className="clip-svg" width="0" height="0">
           <defs>
