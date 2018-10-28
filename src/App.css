@@ -42,6 +42,7 @@
   background-size: cover;
   background-position: center;
   cursor: pointer;
+  transition: all .3s cubic-bezier(0, 0.51, 0.23, 0.95);
 }
 
 /* balanced split */
@@ -58,9 +59,15 @@
 .left-split-left {
   clip-path: polygon(0 0, 70% 0, 50% 100%, 0 100%);
 }
-
 .right-split-left {
   clip-path: polygon(70% 0, 100% 0, 100% 100%, 50% 100%);
+}
+
+.left-split-left.fullscreen {
+  clip-path: polygon(0 0, 130% 0, 100% 100%, 0 100%);
+}
+.right-split-left.fullscreen {
+  clip-path: polygon(130% 0, 130% 0, 100% 100%, 100% 100%);
 }
 
 
@@ -68,7 +75,13 @@
 .left-split-right {
   clip-path: polygon(0 0, 50% 0, 30% 100%, 0 100%);
 }
-
 .right-split-right {
   clip-path: polygon(50% 0, 100% 0, 100% 100%, 30% 100%);
+}
+
+.left-split-right.fullscreen {
+  clip-path: polygon(0 0, 0 0, -30% 100%, -30% 100%);
+}
+.right-split-right.fullscreen {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, -30% 100%);
 }

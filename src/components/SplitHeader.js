@@ -8,6 +8,7 @@ class SplitHeader extends Component {
 
     this.state = {
       focus: 'center',
+      fullScreen: false,
     }
   }
 
@@ -21,31 +22,23 @@ class SplitHeader extends Component {
       backgroundImage: `url(${rightImage})`,
     }
 
-    const leftClickHandler = () => {
-      console.log('left clicked!')
-      this.setState({
-        focus: 'left',
-      })
-    }
-    const rightClickHandler = () => {
-      console.log('right clicked!')
-      this.setState({
-        focus: 'right',
-      })
-    }
+    const { focus, fullScreen } = this.state
+    console.log(`focus: ${focus}`);
+    console.log(`fullScreen: ${fullScreen}`);
 
-    const { focus } = this.state
     const leftClass = classNames({
       "split-image": true,
       "left-split": focus === 'center',
       "left-split-left": focus === 'left',
       "left-split-right": focus === 'right',
+      "fullscreen": fullScreen,
     })
     const rightClass = classNames({
       "split-image": true,
       "right-split": focus === 'center',
       "right-split-left": focus === 'left',
       "right-split-right": focus === 'right',
+      "fullscreen": fullScreen,
     })
     
 
@@ -54,13 +47,15 @@ class SplitHeader extends Component {
         <div 
           className={leftClass} 
           style={leftStyle}
-          onClick={leftClickHandler}
+          onMouseEnter={() => this.setState({ focus: 'left' })}
+          onClick={() => this.setState({ fullScreen: true })}
         >
         </div>
         <div 
           className={rightClass}
           style={rightStyle}
-          onClick={rightClickHandler}
+          onMouseEnter={() => this.setState({ focus: 'right' })}
+          onClick={() => this.setState({ fullScreen: true })}
         ></div>
       </div>
     )
