@@ -11,25 +11,23 @@ class SplitHeader extends Component {
       fullScreen: false,
     }
 
-    this.openFullScreen = () => {
-      console.log('open fullscreen');
-      if (!this.state.fullScreen) {
-        debugger
-        this.setState({ fullscreen: true })
-      }
-    }
+    this.openFullScreen = this.openFullScreen.bind(this)
+    this.closeFullScreen = this.closeFullScreen.bind(this)
+    this.setFocus = this.setFocus.bind(this)
+  }
 
-    this.closeFullScreen = () => {
-      console.log('close fullscreen');
-      if (this.state.fullScreen) {
-        this.setState({ fullscreen: false })
-      }
-    }
+  openFullScreen(e) {
+    e.stopPropagation()
+    this.setState({ fullScreen: true })
+  }
 
-    this.setFocus = (side) => {
-      console.log(`set focus ${side}`);
-      this.setState({ focus: side })
-    }
+  closeFullScreen(e) {
+    e.stopPropagation()
+    this.setState({ fullScreen: false })
+  }
+
+  setFocus(side) {
+    this.setState({ focus: side })
   }
 
   render() {
@@ -92,7 +90,7 @@ class SplitHeader extends Component {
             Close
           </button>
         </div>
-    </div>
+      </div>
     )
   }
 }
