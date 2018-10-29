@@ -10,6 +10,26 @@ class SplitHeader extends Component {
       focus: 'center',
       fullScreen: false,
     }
+
+    this.openFullScreen = () => {
+      console.log('open fullscreen');
+      if (!this.state.fullScreen) {
+        debugger
+        this.setState({ fullscreen: true })
+      }
+    }
+
+    this.closeFullScreen = () => {
+      console.log('close fullscreen');
+      if (this.state.fullScreen) {
+        this.setState({ fullscreen: false })
+      }
+    }
+
+    this.setFocus = (side) => {
+      console.log(`set focus ${side}`);
+      this.setState({ focus: side })
+    }
   }
 
   render() {
@@ -40,24 +60,39 @@ class SplitHeader extends Component {
       "right-split-right": focus === 'right',
       "fullscreen": fullScreen,
     })
-    
+
+    const leftButton = classNames({
+      "hidden": !fullScreen,
+      "close-button": true
+    })
+    const rightButton = classNames({
+      "hidden": !fullScreen,
+      "close-button": true
+    })
 
     return (
       <div className="split-header">
         <div 
           className={leftClass} 
           style={leftStyle}
-          onMouseEnter={() => this.setState({ focus: 'left' })}
-          onClick={() => this.setState({ fullScreen: true })}
+          onMouseEnter={() => this.setFocus('left')}
+          onClick={this.openFullScreen}
         >
         </div>
         <div 
           className={rightClass}
           style={rightStyle}
-          onMouseEnter={() => this.setState({ focus: 'right' })}
-          onClick={() => this.setState({ fullScreen: true })}
-        ></div>
-      </div>
+          onMouseEnter={() => this.setFocus('right')}
+          onClick={this.openFullScreen}
+        >
+          <button 
+            className={rightButton}
+            onClick={this.closeFullScreen}
+          >
+            Close
+          </button>
+        </div>
+    </div>
     )
   }
 }
