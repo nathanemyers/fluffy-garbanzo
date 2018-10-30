@@ -1,10 +1,16 @@
 .App {
-  margin: 2em;
+  margin: 2em auto;
+  width: 850px;
 }
 
 .split-header-container {
   position: relative;
-  height: 400px;
+  height: 500px;
+}
+
+.content {
+  margin-top: 4em;
+  width: 40%;
 }
 
 .split-image {
@@ -36,12 +42,14 @@
   text-align: right;
 }
 
-.left .close-button {
-  float: left;
+.right .close-button,
+.right .content {
+  float: right;
 }
 
-.right .close-button {
-  float: right;
+.left .close-button,
+.left .content {
+  float: left;
 }
 
 /* balanced split */
