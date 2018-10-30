@@ -12,7 +12,11 @@ class App extends Component {
       <div className="App">
         <SplitHeader 
           rightImage={zelda}
+          rightTitle="Breath of the Wild"
+          rightBody="Can anyone make sense of the timeline??"
           leftImage={mgs}
+          leftTitle="Metal Gear Solid"
+          leftBody="Metal Gear Solid is basically an anime, and I'm okay with that. "
         />
       </div>
     );

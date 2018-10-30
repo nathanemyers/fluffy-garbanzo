@@ -1,5 +1,6 @@
 import React, { Component} from 'react'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
 class SplitHeader extends Component {
 
@@ -31,7 +32,14 @@ class SplitHeader extends Component {
   }
 
   render() {
-    const { rightImage, leftImage } = this.props
+    const { 
+      rightImage, 
+      rightTitle, 
+      rightBody, 
+      leftImage,
+      leftTitle, 
+      leftBody, 
+    } = this.props
 
     const leftStyle = {
       backgroundImage: `url(${leftImage})`,
@@ -78,6 +86,8 @@ class SplitHeader extends Component {
           onMouseEnter={() => this.setFocus('left')}
           onClick={this.openFullScreen}
         >
+          <h2>{leftTitle}</h2>
+          <p>{leftBody}</p>
           <button 
             className={leftButton}
             onClick={this.closeFullScreen}
@@ -91,6 +101,8 @@ class SplitHeader extends Component {
           onMouseEnter={() => this.setFocus('right')}
           onClick={this.openFullScreen}
         >
+          <h2>{rightTitle}</h2>
+          <p>{rightBody}</p>
           <button 
             className={rightButton}
             onClick={this.closeFullScreen}
@@ -101,6 +113,15 @@ class SplitHeader extends Component {
       </div>
     )
   }
+}
+
+SplitHeader.propTypes = {
+  rightImage: PropTypes.string.isRequired,
+  leftImage: PropTypes.string.isRequired,
+  rightTitle: PropTypes.string.isRequired,
+  leftTitle: PropTypes.string.isRequired,
+  rightBody: PropTypes.string.isRequired,
+  leftBody: PropTypes.string.isRequired,
 }
 
 export default SplitHeader
