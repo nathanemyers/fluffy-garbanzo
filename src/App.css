@@ -1,36 +1,3 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .split-header {
   height: 400px;
 }
@@ -43,6 +10,28 @@
   background-position: center;
   cursor: pointer;
   transition: all .3s cubic-bezier(0, 0.51, 0.23, 0.95);
+}
+
+.split-image.fullscreen {
+  cursor: default;
+}
+
+.close-button {
+  background-color: rgba(1, 1, 1, .5);
+  cursor: pointer;
+  display: none;
+}
+
+.fullscreen .close-button {
+  display: block;
+}
+
+.left .close-button {
+  float: left;
+}
+
+.right .close-button {
+  float: right;
 }
 
 /* balanced split */

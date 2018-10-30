@@ -46,6 +46,7 @@ class SplitHeader extends Component {
 
     const leftClass = classNames({
       "split-image": true,
+      "left": true,
       "left-split": focus === 'center',
       "left-split-left": focus === 'left',
       "left-split-right": focus === 'right',
@@ -53,6 +54,7 @@ class SplitHeader extends Component {
     })
     const rightClass = classNames({
       "split-image": true,
+      "right": true,
       "right-split": focus === 'center',
       "right-split-left": focus === 'left',
       "right-split-right": focus === 'right',
@@ -76,6 +78,12 @@ class SplitHeader extends Component {
           onMouseEnter={() => this.setFocus('left')}
           onClick={this.openFullScreen}
         >
+          <button 
+            className={leftButton}
+            onClick={this.closeFullScreen}
+          >
+            Close
+          </button>
         </div>
         <div 
           className={rightClass}
