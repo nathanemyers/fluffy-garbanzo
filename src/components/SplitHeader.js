@@ -49,8 +49,6 @@ class SplitHeader extends Component {
     }
 
     const { focus, fullScreen } = this.state
-    console.log(`focus: ${focus}`);
-    console.log(`fullScreen: ${fullScreen}`);
 
     const leftClass = classNames({
       "split-image": true,
@@ -79,36 +77,39 @@ class SplitHeader extends Component {
     })
 
     return (
-      <div className="split-header">
+      <div className="split-header-container" onMouseLeave={() => this.setFocus('center')}>
         <div 
           className={leftClass} 
           style={leftStyle}
           onMouseEnter={() => this.setFocus('left')}
           onClick={this.openFullScreen}
         >
-          <h2>{leftTitle}</h2>
-          <p>{leftBody}</p>
           <button 
             className={leftButton}
             onClick={this.closeFullScreen}
           >
             Close
           </button>
+
+          <h2>{leftTitle}</h2>
+          <p>{leftBody}</p>
         </div>
+
         <div 
           className={rightClass}
           style={rightStyle}
           onMouseEnter={() => this.setFocus('right')}
           onClick={this.openFullScreen}
         >
-          <h2>{rightTitle}</h2>
-          <p>{rightBody}</p>
           <button 
             className={rightButton}
             onClick={this.closeFullScreen}
           >
             Close
           </button>
+
+          <h2>{rightTitle}</h2>
+          <p>{rightBody}</p>
         </div>
       </div>
     )
@@ -118,8 +119,10 @@ class SplitHeader extends Component {
 SplitHeader.propTypes = {
   rightImage: PropTypes.string.isRequired,
   leftImage: PropTypes.string.isRequired,
+
   rightTitle: PropTypes.string.isRequired,
   leftTitle: PropTypes.string.isRequired,
+
   rightBody: PropTypes.string.isRequired,
   leftBody: PropTypes.string.isRequired,
 }

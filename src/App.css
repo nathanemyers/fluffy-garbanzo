@@ -1,4 +1,9 @@
-.split-header {
+.App {
+  margin: 2em;
+}
+
+.split-header-container {
+  position: relative;
   height: 400px;
 }
 
@@ -10,6 +15,7 @@
   background-position: center;
   cursor: pointer;
   transition: all .3s cubic-bezier(0, 0.51, 0.23, 0.95);
+  padding: 1em;
 }
 
 .split-image.fullscreen {
@@ -17,13 +23,17 @@
 }
 
 .close-button {
-  background-color: rgba(1, 1, 1, .5);
+  background-color: rgba(255, 2551, 255, .5);
   cursor: pointer;
   display: none;
 }
 
 .fullscreen .close-button {
   display: block;
+}
+
+.right {
+  text-align: right;
 }
 
 .left .close-button {
